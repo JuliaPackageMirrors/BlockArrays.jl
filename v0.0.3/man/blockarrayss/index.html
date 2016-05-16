@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Kristoffer Carlsson">
+  
+  <title>BlockArrays - BlockArrays.jl</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../assets/Documenter.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "BlockArrays";
+    var mkdocs_page_input_path = "man/blockarrayss.md";
+    var mkdocs_page_url = "/man/blockarrayss/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="../../assets/mathjaxhelper.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> BlockArrays.jl</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Manual</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../abstractblockarrayinterface/">AbstractBlockArray interface</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">BlockArrays</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#blockarrays">BlockArrays</a></li>
+                
+                    <li><a class="toctree-l4" href="#creating-uninitialized-blockarrays">Creating uninitialized BlockArrays.</a></li>
+                
+                    <li><a class="toctree-l4" href="#setting-and-getting-blocks-and-values">Setting and getting blocks and values</a></li>
+                
+                    <li><a class="toctree-l4" href="#converting-between-blockarray-and-normal-arrays">Converting between BlockArray and normal arrays</a></li>
+                
+                    <li><a class="toctree-l4" href="#operations-on-blockarrays">Operations on BlockArrays.</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../pseudoblockarrays/">PseudoBlockArrays</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Library</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../lib/public/">Public</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../lib/internals/">Internals</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">BlockArrays.jl</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Manual &raquo;</li>
+        
+      
+    
+    <li>BlockArrays</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/KristofferC/BlockArrays.jl" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><a id='BlockArrays-1'></a></p>
+<h1 id="blockarrays">BlockArrays</h1>
+<p><a id='Creating-uninitialized-BlockArrays.-1'></a></p>
+<h2 id="creating-uninitialized-blockarrays">Creating uninitialized <code>BlockArrays</code>.</h2>
+<p>A <code>BlockArray</code> can be created with the blocks left uninitialized using the <code>BlockArray(block_type, block_sizes...)</code> function. The <code>block_type</code> should be an array type, it could for example be <code>Matrix{Float64}</code>. The block sizes are each a <code>Vector{Int}</code> which determines the size of the blocks in that dimension. We here create a <code>[1,2]×[3,2]</code> block matrix of <code>Float32</code>s:</p>
+<pre><code class="jl">julia&gt; BlockArray(Matrix{Float32}, [1,2], [3,2])
+2×2-blocked 3×5 BlockArrays.BlockArray{Float32,2,Array{Float32,2}}:
+ #undef  #undef  #undef  │  #undef  #undef
+ ------------------------┼----------------
+ #undef  #undef  #undef  │  #undef  #undef
+ #undef  #undef  #undef  │  #undef  #undef
+</code></pre>
+
+<p>We can also use a <code>SparseVector</code> or any other user defined array type:</p>
+<pre><code class="jl">julia&gt; BlockArray(SparseVector{Float64, Int}, [1,2])
+2-blocked 3-element BlockArrays.BlockArray{Float64,1,SparseVector{Float64,Int64}}:
+ #undef
+ ------
+ #undef
+ #undef
+</code></pre>
+
+<p>Note that accessing an undefined block will throw an "access to undefined reference"-error.</p>
+<p><a id='Setting-and-getting-blocks-and-values-1'></a></p>
+<h2 id="setting-and-getting-blocks-and-values">Setting and getting blocks and values</h2>
+<p>A block can be set by <code>setblock!(block_array, v, i...)</code> where <code>v</code> is the array to set and <code>i</code> is the block index. An alternative syntax for this is <code>block_array[Block(i...)] = v</code>.</p>
+<pre><code class="jl">julia&gt; block_array = BlockArray(Matrix{Float64}, [1,2], [2,2])
+2×2-blocked 3×4 BlockArrays.BlockArray{Float64,2,Array{Float64,2}}:
+ #undef  #undef  │  #undef  #undef
+ ----------------┼----------------
+ #undef  #undef  │  #undef  #undef
+ #undef  #undef  │  #undef  #undef
+
+julia&gt; setblock!(block_array, rand(2,2), 2, 1)
+2×2-blocked 3×4 BlockArrays.BlockArray{Float64,2,Array{Float64,2}}:
+ #undef      #undef      │  #undef  #undef
+ ------------------------┼----------------
+   0.314407    0.298761  │  #undef  #undef
+   0.91585     0.644499  │  #undef  #undef
+
+julia&gt; block_array[Block(1, 1)] = [1 2];
+
+julia&gt; block_array
+2×2-blocked 3×4 BlockArrays.BlockArray{Float64,2,Array{Float64,2}}:
+ 1.0       2.0       │  #undef  #undef
+ --------------------┼----------------
+ 0.314407  0.298761  │  #undef  #undef
+ 0.91585   0.644499  │  #undef  #undef
+</code></pre>
+
+<p>Note that this will "take ownership" of the passed in array, that is, no copy is made.</p>
+<p>A block can be retrieved with <code>getblock(block_array, i...)</code> or <code>block_array[Block(i...)]</code>:</p>
+<pre><code class="jl">julia&gt; block_array[Block(1, 1)]
+1×2 Array{Float64,2}:
+ 1.0  2.0
+</code></pre>
+
+<p>Similarly to <code>setblock!</code> this does not copy the returned array.</p>
+<p>For setting and getting a single scalar element, the usual <code>setindex!</code> and <code>getindex</code> are available.</p>
+<pre><code class="jl">julia&gt; block_array[1, 2]
+2.0
+</code></pre>
+
+<p><a id='Converting-between-BlockArray-and-normal-arrays-1'></a></p>
+<h2 id="converting-between-blockarray-and-normal-arrays">Converting between <code>BlockArray</code> and normal arrays</h2>
+<p>An array can be repacked into a <code>BlockArray</code> with<code>BlockArray(array, block_sizes...)</code>:</p>
+<pre><code class="jl">julia&gt; block_array_sparse = BlockArray(sprand(4, 5, 0.7), [1,3], [2,3])
+2×2-blocked 4×5 BlockArrays.BlockArray{Float64,2,SparseMatrixCSC{Float64,Int64}
+ 0.0       0.284338  │  0.0         0.52346   0.403969
+ --------------------┼--------------------------------
+ 0.909193  0.0       │  0.0         0.3401    0.922003
+ 0.0       0.736793  │  0.00840872  0.804832  0.441806
+ 0.0       0.0       │  0.553519    0.757454  0.575238
+</code></pre>
+
+<p>To get back the full array use <code>full</code>:</p>
+<pre><code class="jl">julia&gt; full(block_array_sparse)
+4×5 sparse matrix with 13 Float64 nonzero entries:
+    [2, 1]  =  0.909193
+    [1, 2]  =  0.284338
+      ⋮
+    [3, 5]  =  0.441806
+    [4, 5]  =  0.575238
+</code></pre>
+
+<p><a id='Operations-on-BlockArrays.-1'></a></p>
+<h2 id="operations-on-blockarrays">Operations on <code>BlockArrays</code>.</h2>
+<p>Simple unary/binary functions and reductions are available, for an overview, see the <code>operations.jl</code> file.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../pseudoblockarrays/" class="btn btn-neutral float-right" title="PseudoBlockArrays">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../abstractblockarrayinterface/" class="btn btn-neutral" title="AbstractBlockArray interface"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/KristofferC/BlockArrays.jl" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../abstractblockarrayinterface/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../pseudoblockarrays/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
