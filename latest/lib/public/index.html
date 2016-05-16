@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Kristoffer Carlsson">
+  
+  <title>Public - BlockArrays.jl</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../assets/Documenter.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Public";
+    var mkdocs_page_input_path = "lib/public.md";
+    var mkdocs_page_url = "/lib/public/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="../../assets/mathjaxhelper.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> BlockArrays.jl</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Manual</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../man/abstractblockarrayinterface/">AbstractBlockArray interface</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../man/blockarrayss/">BlockArrays</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../man/pseudoblockarrays/">PseudoBlockArrays</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Library</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Public</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#public-documentation">Public Documentation</a></li>
+                
+                    <li><a class="toctree-l4" href="#contents">Contents</a></li>
+                
+                    <li><a class="toctree-l4" href="#index">Index</a></li>
+                
+                    <li><a class="toctree-l4" href="#abstractblockarray-interface">AbstractBlockArray interface</a></li>
+                
+                    <li><a class="toctree-l4" href="#blockarray">BlockArray</a></li>
+                
+                    <li><a class="toctree-l4" href="#pseudoblockarray">PseudoBlockArray</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../internals/">Internals</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">BlockArrays.jl</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Library &raquo;</li>
+        
+      
+    
+    <li>Public</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/KristofferC/BlockArrays.jl" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><a id='Public-Documentation-1'></a></p>
+<h1 id="public-documentation">Public Documentation</h1>
+<p>Documentation for <code>BlockArrays.jl</code>'s public interface.</p>
+<p>See <a href="../internals/#Internal-Documentation-1">Internal Documentation</a> for internal package docs covering all submodules.</p>
+<p><a id='Contents-1'></a></p>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="./#Public-Documentation-1">Public Documentation</a><ul>
+<li><a href="./#Contents-1">Contents</a></li>
+<li><a href="./#Index-1">Index</a></li>
+<li><a href="./#AbstractBlockArray-interface-1">AbstractBlockArray interface</a></li>
+<li><a href="./#BlockArray-1">BlockArray</a></li>
+<li><a href="./#PseudoBlockArray-1">PseudoBlockArray</a></li>
+</ul>
+</li>
+</ul>
+<p><a id='Index-1'></a></p>
+<h2 id="index">Index</h2>
+<ul>
+<li><a href="./#Base.full"><code>Base.full</code></a></li>
+<li><a href="./#BlockArrays.AbstractBlockArray"><code>BlockArrays.AbstractBlockArray</code></a></li>
+<li><a href="./#BlockArrays.Block"><code>BlockArrays.Block</code></a></li>
+<li><a href="./#BlockArrays.BlockArray"><code>BlockArrays.BlockArray</code></a></li>
+<li><a href="./#BlockArrays.BlockBoundsError"><code>BlockArrays.BlockBoundsError</code></a></li>
+<li><a href="./#BlockArrays.PseudoBlockArray"><code>BlockArrays.PseudoBlockArray</code></a></li>
+<li><a href="./#BlockArrays.blockcheckbounds"><code>BlockArrays.blockcheckbounds</code></a></li>
+<li><a href="./#BlockArrays.blocksize"><code>BlockArrays.blocksize</code></a></li>
+<li><a href="./#BlockArrays.getblock"><code>BlockArrays.getblock</code></a></li>
+<li><a href="./#BlockArrays.getblock!"><code>BlockArrays.getblock!</code></a></li>
+<li><a href="./#BlockArrays.nblocks"><code>BlockArrays.nblocks</code></a></li>
+<li><a href="./#BlockArrays.setblock!"><code>BlockArrays.setblock!</code></a></li>
+</ul>
+<p><a id='AbstractBlockArray-interface-1'></a></p>
+<h2 id="abstractblockarray-interface">AbstractBlockArray interface</h2>
+<p>This sections defines the functions a subtype of <code>AbstractBlockArray</code> should define to be a part of the <code>AbstractBlockArray</code> interface. An <code>AbstractBlockArray{T, N}</code> is a subtype of <code>AbstractArray{T,N}</code> and should therefore also fulfill the <a href="http://docs.julialang.org/en/latest/manual/interfaces/#abstract-arrays"><code>AbstractArray</code> interface</a>.</p>
+<p><a id='BlockArrays.AbstractBlockArray' href='#BlockArrays.AbstractBlockArray'>#</a>
+<strong><code>BlockArrays.AbstractBlockArray</code></strong> &mdash; <em>Type</em>.</p>
+<pre><code>abstract AbstractBlockArray{T, N} &lt;: AbstractArray{T, N}
+</code></pre>
+
+<p>The abstract type that represents a blocked array. Types that implement the <code>AbstractBlockArray</code> interface should subtype from this type.</p>
+<p><strong> Typealiases </strong></p>
+<ul>
+<li>
+<p><code>AbstractBlockMatrix{T}</code> -&gt; <code>AbstractBlockArray{T, 2}</code></p>
+</li>
+<li>
+<p><code>AbstractBlockVector{T}</code> -&gt; <code>AbstractBlockArray{T, 1}</code></p>
+</li>
+<li>
+<p><code>AbstractBlockVecOrMat{T}</code> -&gt; <code>Union{AbstractBlockMatrix{T}, AbstractBlockVector{T}}</code></p>
+</li>
+</ul>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/6bac00a4dc9d382010615d0447592ff558a96855/src/abstractblockarray.jl#L5-18' class='documenter-source'>source</a><br>
+<a id='BlockArrays.BlockBoundsError' href='#BlockArrays.BlockBoundsError'>#</a>
+<strong><code>BlockArrays.BlockBoundsError</code></strong> &mdash; <em>Type</em>.</p>
+<pre><code>BlockBoundsError([A],[inds...])
+</code></pre>
+
+<p>Thrown when a block indexing operation into a block array, <code>A</code>, tried to access an out-of-bounds block, <code>inds</code>.</p>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/6bac00a4dc9d382010615d0447592ff558a96855/src/abstractblockarray.jl#L156-160' class='documenter-source'>source</a><br>
+<a id='BlockArrays.Block' href='#BlockArrays.Block'>#</a>
+<strong><code>BlockArrays.Block</code></strong> &mdash; <em>Type</em>.</p>
+<pre><code>Block(inds...)
+</code></pre>
+
+<p>A <code>Block</code> is simply a wrapper around a set of indices so that it can be used to dispatch on. By indexing a <code>AbstractBlockArray</code> with a <code>Block</code> the a block at that block index will be returned instead of a single element.</p>
+<pre><code class="jlcon">julia&gt; A = BlockArray(rand(2,3), [1,1], [2,1])
+2×2-blocked 2×3 BlockArrays.BlockArray{Float64,2,Array{Float64,2}}:
+ 0.190705  0.798036  │  0.471299
+ --------------------┼-----------
+ 0.770005  0.845003  │  0.0315575
+
+julia&gt; A[Block(1,2)]
+1×1 Array{Float64,2}:
+ 0.471299
+</code></pre>
+
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/6bac00a4dc9d382010615d0447592ff558a96855/src/abstractblockarray.jl#L229-247' class='documenter-source'>source</a><br>
+<a id='BlockArrays.nblocks' href='#BlockArrays.nblocks'>#</a>
+<strong><code>BlockArrays.nblocks</code></strong> &mdash; <em>Function</em>.</p>
+<pre><code>nblocks(A, [dim...])
+</code></pre>
+
+<p>Returns a tuple containing the number of blocks in a block array.  Optionally you can specify the dimension(s) you want the number of blocks for.</p>
+<pre><code class="jlcon">julia&gt; A =  BlockArray(rand(5,4,6), [1,4], [1,2,1], [1,2,2,1]);
+
+julia&gt; nblocks(A)
+(2,3,4)
+
+julia&gt; nblocks(A, 2)
+3
+
+julia&gt; nblocks(A, 3, 2)
+(4,3)
+</code></pre>
+
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/6bac00a4dc9d382010615d0447592ff558a96855/src/abstractblockarray.jl#L29-47' class='documenter-source'>source</a><br>
+<a id='BlockArrays.blocksize' href='#BlockArrays.blocksize'>#</a>
+<strong><code>BlockArrays.blocksize</code></strong> &mdash; <em>Function</em>.</p>
+<pre><code>blocksize(A, inds...)
+</code></pre>
+
+<p>Returns a tuple containing the size of the block at block index <code>inds...</code>.</p>
+<pre><code class="jlcon">julia&gt; A = BlockArray(rand(5,4,6), [1,4], [1,2,1], [1,2,2,1]);
+
+julia&gt; blocksize(A,1,3,2)
+(1,1,2)
+
+julia&gt; blocksize(A,2,1,3)
+(4,1,2)
+</code></pre>
+
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/6bac00a4dc9d382010615d0447592ff558a96855/src/abstractblockarray.jl#L59-73' class='documenter-source'>source</a><br>
+<a id='BlockArrays.getblock' href='#BlockArrays.getblock'>#</a>
+<strong><code>BlockArrays.getblock</code></strong> &mdash; <em>Function</em>.</p>
+<pre><code>getblock(A, inds...)
+</code></pre>
+
+<p>Returns the block at blockindex <code>inds...</code>. An alternative syntax is <code>A[Block(inds...)]. Throws a</code>BlockBoundsError` if this block is out of bounds.</p>
+<pre><code class="jlcon">julia&gt; A = BlockArray(rand(2,3), [1,1], [2,1])
+2×2-blocked 2×3 BlockArrays.BlockArray{Float64,2,Array{Float64,2}}:
+ 0.190705  0.798036  │  0.471299
+ --------------------┼-----------
+ 0.770005  0.845003  │  0.0315575
+
+julia&gt; getblock(A, 2, 1)
+1×2 Array{Float64,2}:
+ 0.770005  0.845003
+
+julia&gt; A[Block(1,2)]
+1×1 Array{Float64,2}:
+ 0.471299
+</code></pre>
+
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/6bac00a4dc9d382010615d0447592ff558a96855/src/abstractblockarray.jl#L79-100' class='documenter-source'>source</a><br>
+<a id='BlockArrays.getblock!' href='#BlockArrays.getblock!'>#</a>
+<strong><code>BlockArrays.getblock!</code></strong> &mdash; <em>Function</em>.</p>
+<pre><code>getblock!(X, A, inds...)
+</code></pre>
+
+<p>Stores the block at blockindex <code>inds</code> in <code>X</code> and returns it. Throws a <code>BlockBoundsError</code> if the attempted assigned block is out of bounds.</p>
+<pre><code class="jlcon">julia&gt; A = PseudoBlockArray(rand(2,3), [1,1], [2,1])
+2×2-blocked 2×3 BlockArrays.PseudoBlockArray{Float64,2,Array{Float64,2}}:
+ 0.2062    0.0238446  │  0.0505515
+ ---------------------┼-----------
+ 0.744768  0.225364   │  0.23028
+
+julia&gt; x = zeros(1,2);
+
+julia&gt; getblock!(x, A, 2, 1);
+
+julia&gt; x
+1×2 Array{Float64,2}:
+ 0.744768  0.225364
+</code></pre>
+
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/6bac00a4dc9d382010615d0447592ff558a96855/src/abstractblockarray.jl#L106-127' class='documenter-source'>source</a><br>
+<a id='BlockArrays.setblock!' href='#BlockArrays.setblock!'>#</a>
+<strong><code>BlockArrays.setblock!</code></strong> &mdash; <em>Function</em>.</p>
+<pre><code>setblock!(A, v, inds...)
+</code></pre>
+
+<p>Stores the block <code>v</code> in the block at block index <code>inds</code> in <code>A</code>. An alternative syntax is <code>A[Block(inds...)] = v</code>. Throws a <code>BlockBoundsError</code> if this block is out of bounds.</p>
+<pre><code class="jlcon">julia&gt; A = PseudoBlockArray(zeros(2,3), [1,1], [2,1]);
+
+julia&gt; setblock!(A, [1 2], 1,1);
+
+julia&gt; A[Block(2,1)] = [3 4];
+
+julia&gt; A
+2×2-blocked 2×3 BlockArrays.PseudoBlockArray{Float64,2,Array{Float64,2}}:
+ 1.0  2.0  │  0.0
+ ----------┼-----
+ 3.0  4.0  │  0.0
+</code></pre>
+
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/6bac00a4dc9d382010615d0447592ff558a96855/src/abstractblockarray.jl#L132-151' class='documenter-source'>source</a><br>
+<a id='Base.full' href='#Base.full'>#</a>
+<strong><code>Base.full</code></strong> &mdash; <em>Function</em>.</p>
+<pre><code>full(A)
+</code></pre>
+
+<p>Returns the full array stored in <code>A</code>. Full is here not used in the sense of sparse vs dense but in blocked vs unblocked.</p>
+<pre><code class="jlcon">julia&gt; A = BlockArray(rand(2,3), [1,1], [2,1])
+2×2-blocked 2×3 BlockArrays.BlockArray{Float64,2,Array{Float64,2}}:
+ 0.770528  0.396896  │  0.443308
+ --------------------┼----------
+ 0.857069  0.403512  │  0.915934
+
+julia&gt; full(A)
+2×3 Array{Float64,2}:
+ 0.770528  0.396896  0.443308
+ 0.857069  0.403512  0.915934
+</code></pre>
+
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/6bac00a4dc9d382010615d0447592ff558a96855/src/abstractblockarray.jl#L207-225' class='documenter-source'>source</a><br>
+<a id='BlockArrays.blockcheckbounds' href='#BlockArrays.blockcheckbounds'>#</a>
+<strong><code>BlockArrays.blockcheckbounds</code></strong> &mdash; <em>Function</em>.</p>
+<pre><code>blockcheckbounds(A, inds...)
+</code></pre>
+
+<p>Throw a <code>BlockBoundsError</code> if the specified block indexes are not in bounds for the given block array. Subtypes of <code>AbstractBlockArray</code> should specialize this method if they need to provide custom block bounds checking behaviors.</p>
+<pre><code class="jlcon">julia&gt; A = BlockArray(rand(2,3), [1,1], [2,1]);
+
+julia&gt; blockcheckbounds(A, 3,2)
+ERROR: BlockBoundsError: attempt to access 2×2-blocked 2×3 BlockArrays.BlockArray{Float64,2,Array{Float64,2}} at block index [3,2]
+ in blockcheckbounds(::BlockArrays.BlockArray{Float64,2,Array{Float64,2}}, ::Int64, ::Int64)
+ in eval(::Module, ::Any) at ./boot.jl:226
+</code></pre>
+
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/6bac00a4dc9d382010615d0447592ff558a96855/src/abstractblockarray.jl#L182-196' class='documenter-source'>source</a><br></p>
+<p><a id='BlockArray-1'></a></p>
+<h2 id="blockarray">BlockArray</h2>
+<p><a id='BlockArrays.BlockArray' href='#BlockArrays.BlockArray'>#</a>
+<strong><code>BlockArrays.BlockArray</code></strong> &mdash; <em>Type</em>.</p>
+<pre><code>BlockArray{T, N, R} &lt;: AbstractBlockArray{T, N}
+</code></pre>
+
+<p><code>R</code> defines the array type that each block has.</p>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/6bac00a4dc9d382010615d0447592ff558a96855/src/blockarray.jl#L8-12' class='documenter-source'>source</a><br></p>
+<p>Constructs a <code>BlockArray</code> with uninitialized blocks from a block type.</p>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/6bac00a4dc9d382010615d0447592ff558a96855/src/blockarray.jl#L159-161' class='documenter-source'>source</a><br></p>
+<p><a id='PseudoBlockArray-1'></a></p>
+<h2 id="pseudoblockarray">PseudoBlockArray</h2>
+<p><a id='BlockArrays.PseudoBlockArray' href='#BlockArrays.PseudoBlockArray'>#</a>
+<strong><code>BlockArrays.PseudoBlockArray</code></strong> &mdash; <em>Type</em>.</p>
+<pre><code>PseudoBlockArray{T, N, R} &lt;: AbstractBlockArray{T, N}
+</code></pre>
+
+<p>A <code>PseudoBlockArray</code> is similar to a <a href="./#BlockArrays.BlockArray"><code>BlockArray</code></a> except the full array is stored contiguously instead of block by block. This means that is not possible to insert and retrieve blocks without copying data. On the other hand <code>full</code> on a <code>PseudoBlockArray</code> is instead instant since it just returns the wrapped array.</p>
+<p>When iteratively solving a set of equations with a gradient method the Jacobian typically has a block structure. It can be convenient to use a <code>PseudoBlockArray</code> to build up the Jacobian block by block and then pass the resulting matrix to a direct solver using <code>full</code>.</p>
+<pre><code class="jlcon">julia&gt; A = PseudoBlockArray(rand(2,3), [1,1], [2,1])
+2×2-blocked 2×3 BlockArrays.PseudoBlockArray{Float64,2,Array{Float64,2}}:
+ 0.599925  0.288788  │  0.55428
+ --------------------┼----------
+ 0.82342   0.394812  │  0.263454
+
+julia&gt; A = PseudoBlockArray(sprand(6, 0.5), [3,2,1])
+3-blocked 6-element BlockArrays.PseudoBlockArray{Float64,1,SparseVector{Float64,Int64}}:
+ 0.542401
+ 0.542299
+ 0.0
+ ---------
+ 0.682638
+ 0.0
+ ---------
+ 0.0553841
+</code></pre>
+
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/6bac00a4dc9d382010615d0447592ff558a96855/src/pseudo_blockarray.jl#L8-38' class='documenter-source'>source</a><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../internals/" class="btn btn-neutral float-right" title="Internals">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../man/pseudoblockarrays/" class="btn btn-neutral" title="PseudoBlockArrays"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/KristofferC/BlockArrays.jl" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../man/pseudoblockarrays/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../internals/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

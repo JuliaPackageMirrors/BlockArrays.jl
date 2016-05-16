@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Kristoffer Carlsson">
+  
+  <title>PseudoBlockArrays - BlockArrays.jl</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../assets/Documenter.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "PseudoBlockArrays";
+    var mkdocs_page_input_path = "man/pseudoblockarrays.md";
+    var mkdocs_page_url = "/man/pseudoblockarrays/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="../../assets/mathjaxhelper.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> BlockArrays.jl</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Manual</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../abstractblockarrayinterface/">AbstractBlockArray interface</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../blockarrayss/">BlockArrays</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">PseudoBlockArrays</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#pseudoblockarrays">PseudoBlockArrays</a></li>
+                
+                    <li><a class="toctree-l4" href="#creating-pseudoblockarrays">Creating PseudoBlockArrays</a></li>
+                
+                    <li><a class="toctree-l4" href="#setting-and-getting-blocks-and-values">Setting and getting blocks and values</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Library</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../lib/public/">Public</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../lib/internals/">Internals</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">BlockArrays.jl</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Manual &raquo;</li>
+        
+      
+    
+    <li>PseudoBlockArrays</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/KristofferC/BlockArrays.jl" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><a id='PseudoBlockArrays-1'></a></p>
+<h1 id="pseudoblockarrays">PseudoBlockArrays</h1>
+<p>A <code>PseudoBlockArray</code> is similar to a <a href="../../lib/public/#BlockArrays.BlockArray"><code>BlockArray</code></a> except the full array is stored contiguously instead of block by block. This means that is not possible to insert and retrieve blocks without copying data. On the other hand <code>full</code> on a <code>PseudoBlockArray</code> is instead instant since it just returns the wrapped array.</p>
+<p>When iteratively solving a set of equations with a gradient method the Jacobian typically has a block structure. It can be convenient to use a <code>PseudoBlockArray</code> to build up the Jacobian block by block and then pass the resulting matrix to a direct solver using <code>full</code>.</p>
+<p><a id='Creating-PseudoBlockArrays-1'></a></p>
+<h2 id="creating-pseudoblockarrays">Creating PseudoBlockArrays</h2>
+<p>Creating a <code>PseudoBlockArray</code> works in the same way as a <code>BlockArray</code>.</p>
+<pre><code class="julia">julia&gt; pseudo = PseudoBlockArray(rand(3,3), [1,2], [2,1])
+2×2-blocked 3×3 BlockArrays.PseudoBlockArray{Float64,2,Array{Float64,2}}:
+ 0.282059  0.560107  │  0.540811
+ --------------------┼----------
+ 0.46358   0.11423   │  0.520826
+ 0.250737  0.809022  │  0.905993
+</code></pre>
+
+<p>This "takes ownership" of the passed in array so no copy of the array is made.</p>
+<p><a id='Setting-and-getting-blocks-and-values-1'></a></p>
+<h2 id="setting-and-getting-blocks-and-values">Setting and getting blocks and values</h2>
+<p>Setting and getting blocks uses the same API as <code>BlockArrays</code>. The difference here is that setting a block will update the block in place and getting a block will extract a copy of the block and return it. For <code>PseudoBlockArrays</code> there is a mutating block getter called <code>getblock!</code> which updates a passed in array to avoid a copy:</p>
+<pre><code class="julia">julia&gt; A = zeros(2,2)
+
+julia&gt; getblock!(A, pseudo, 2, 1);
+
+julia&gt; A
+2×2 Array{Float64,2}:
+ 0.46358   0.11423
+ 0.250737  0.809022
+</code></pre>
+
+<p>The underlying array is accessed with <code>full</code> just like for <code>BlockArray</code>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../lib/public/" class="btn btn-neutral float-right" title="Public">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../blockarrayss/" class="btn btn-neutral" title="BlockArrays"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/KristofferC/BlockArrays.jl" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../blockarrayss/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../lib/public/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
