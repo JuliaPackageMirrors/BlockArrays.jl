@@ -227,14 +227,14 @@
 <p><code>AbstractBlockVecOrMat{T}</code> -&gt; <code>Union{AbstractBlockMatrix{T}, AbstractBlockVector{T}}</code></p>
 </li>
 </ul>
-<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/a0dd7fc7295052a7b0b1d498e579dac3984b89b3/src/abstractblockarray.jl#L5-18' class='documenter-source'>source</a><br>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/f118b35c063ff2d15a3ac6c3c678fd12ebe31803/src/abstractblockarray.jl#L5-18' class='documenter-source'>source</a><br>
 <a id='BlockArrays.BlockBoundsError' href='#BlockArrays.BlockBoundsError'>#</a>
 <strong><code>BlockArrays.BlockBoundsError</code></strong> &mdash; <em>Type</em>.</p>
 <pre><code>BlockBoundsError([A],[inds...])
 </code></pre>
 
 <p>Thrown when a block indexing operation into a block array, <code>A</code>, tried to access an out-of-bounds block, <code>inds</code>.</p>
-<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/a0dd7fc7295052a7b0b1d498e579dac3984b89b3/src/abstractblockarray.jl#L232-236' class='documenter-source'>source</a><br>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/f118b35c063ff2d15a3ac6c3c678fd12ebe31803/src/abstractblockarray.jl#L232-236' class='documenter-source'>source</a><br>
 <a id='BlockArrays.Block' href='#BlockArrays.Block'>#</a>
 <strong><code>BlockArrays.Block</code></strong> &mdash; <em>Type</em>.</p>
 <pre><code>Block(inds...)
@@ -252,7 +252,7 @@ julia&gt; A[Block(1,2)]
  0.471299
 </code></pre>
 
-<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/a0dd7fc7295052a7b0b1d498e579dac3984b89b3/src/abstractblockarray.jl#L305-323' class='documenter-source'>source</a><br>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/f118b35c063ff2d15a3ac6c3c678fd12ebe31803/src/abstractblockarray.jl#L305-323' class='documenter-source'>source</a><br>
 <a id='BlockArrays.nblocks' href='#BlockArrays.nblocks'>#</a>
 <strong><code>BlockArrays.nblocks</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code>nblocks(A, [dim...])
@@ -271,7 +271,7 @@ julia&gt; nblocks(A, 3, 2)
 (4,3)
 </code></pre>
 
-<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/a0dd7fc7295052a7b0b1d498e579dac3984b89b3/src/abstractblockarray.jl#L29-47' class='documenter-source'>source</a><br>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/f118b35c063ff2d15a3ac6c3c678fd12ebe31803/src/abstractblockarray.jl#L29-47' class='documenter-source'>source</a><br>
 <a id='BlockArrays.blocksize' href='#BlockArrays.blocksize'>#</a>
 <strong><code>BlockArrays.blocksize</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code>blocksize(A, inds...)
@@ -287,7 +287,7 @@ julia&gt; blocksize(A,2,1,3)
 (4,1,2)
 </code></pre>
 
-<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/a0dd7fc7295052a7b0b1d498e579dac3984b89b3/src/abstractblockarray.jl#L59-73' class='documenter-source'>source</a><br>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/f118b35c063ff2d15a3ac6c3c678fd12ebe31803/src/abstractblockarray.jl#L59-73' class='documenter-source'>source</a><br>
 <a id='BlockArrays.getblock' href='#BlockArrays.getblock'>#</a>
 <strong><code>BlockArrays.getblock</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code>getblock(A, inds...)
@@ -309,7 +309,7 @@ julia&gt; A[Block(1,2)]
  0.471299
 </code></pre>
 
-<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/a0dd7fc7295052a7b0b1d498e579dac3984b89b3/src/abstractblockarray.jl#L79-100' class='documenter-source'>source</a><br>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/f118b35c063ff2d15a3ac6c3c678fd12ebe31803/src/abstractblockarray.jl#L79-100' class='documenter-source'>source</a><br>
 <a id='BlockArrays.getblock!' href='#BlockArrays.getblock!'>#</a>
 <strong><code>BlockArrays.getblock!</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code>getblock!(X, A, inds...)
@@ -331,7 +331,7 @@ julia&gt; x
  0.744768  0.225364
 </code></pre>
 
-<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/a0dd7fc7295052a7b0b1d498e579dac3984b89b3/src/abstractblockarray.jl#L137-158' class='documenter-source'>source</a><br>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/f118b35c063ff2d15a3ac6c3c678fd12ebe31803/src/abstractblockarray.jl#L137-158' class='documenter-source'>source</a><br>
 <a id='BlockArrays.setblock!' href='#BlockArrays.setblock!'>#</a>
 <strong><code>BlockArrays.setblock!</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code>setblock!(A, v, inds...)
@@ -351,7 +351,7 @@ julia&gt; A
  3.0  4.0  │  0.0
 </code></pre>
 
-<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/a0dd7fc7295052a7b0b1d498e579dac3984b89b3/src/abstractblockarray.jl#L175-194' class='documenter-source'>source</a><br>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/f118b35c063ff2d15a3ac6c3c678fd12ebe31803/src/abstractblockarray.jl#L175-194' class='documenter-source'>source</a><br>
 <a id='Base.getindex' href='#Base.getindex'>#</a>
 <strong><code>Base.getindex</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code>getindex{T, N}(A::AbstractBlockArray{T,N}, i...::Enum)
@@ -369,7 +369,7 @@ ulia&gt; A[u, v]
  3.0
 </code></pre>
 
-<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/a0dd7fc7295052a7b0b1d498e579dac3984b89b3/src/abstractblockarray.jl#L105-121' class='documenter-source'>source</a><br>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/f118b35c063ff2d15a3ac6c3c678fd12ebe31803/src/abstractblockarray.jl#L105-121' class='documenter-source'>source</a><br>
 <a id='Base.setindex!' href='#Base.setindex!'>#</a>
 <strong><code>Base.setindex!</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code>setindex!{T, N}(A::AbstractBlockArray{T,N}, v, i...::Enum)
@@ -389,7 +389,7 @@ julia&gt; A
  0.0  0.0  │  0.0
 </code></pre>
 
-<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/a0dd7fc7295052a7b0b1d498e579dac3984b89b3/src/abstractblockarray.jl#L199-218' class='documenter-source'>source</a><br>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/f118b35c063ff2d15a3ac6c3c678fd12ebe31803/src/abstractblockarray.jl#L199-218' class='documenter-source'>source</a><br>
 <a id='Base.full' href='#Base.full'>#</a>
 <strong><code>Base.full</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code>full(A)
@@ -408,7 +408,7 @@ julia&gt; full(A)
  0.857069  0.403512  0.915934
 </code></pre>
 
-<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/a0dd7fc7295052a7b0b1d498e579dac3984b89b3/src/abstractblockarray.jl#L283-301' class='documenter-source'>source</a><br>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/f118b35c063ff2d15a3ac6c3c678fd12ebe31803/src/abstractblockarray.jl#L283-301' class='documenter-source'>source</a><br>
 <a id='BlockArrays.blockcheckbounds' href='#BlockArrays.blockcheckbounds'>#</a>
 <strong><code>BlockArrays.blockcheckbounds</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code>blockcheckbounds(A, inds...)
@@ -423,7 +423,7 @@ ERROR: BlockBoundsError: attempt to access 2×2-blocked 2×3 BlockArrays.BlockAr
  in eval(::Module, ::Any) at ./boot.jl:226
 </code></pre>
 
-<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/a0dd7fc7295052a7b0b1d498e579dac3984b89b3/src/abstractblockarray.jl#L258-272' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/f118b35c063ff2d15a3ac6c3c678fd12ebe31803/src/abstractblockarray.jl#L258-272' class='documenter-source'>source</a><br></p>
 <p><a id='BlockArray-1'></a></p>
 <h2 id="blockarray">BlockArray</h2>
 <p><a id='BlockArrays.BlockArray' href='#BlockArrays.BlockArray'>#</a>
@@ -433,9 +433,9 @@ ERROR: BlockBoundsError: attempt to access 2×2-blocked 2×3 BlockArrays.BlockAr
 
 <p>A <code>BlockArray</code> is an array where each block is stored contiguously. This means that insertions and retrival of blocks can be very fast since no copying of data is needed.</p>
 <p>In the type definition, <code>R</code> defines the array type that each block has, for example `Matrix{Float64}.</p>
-<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/a0dd7fc7295052a7b0b1d498e579dac3984b89b3/src/blockarray.jl#L8-15' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/f118b35c063ff2d15a3ac6c3c678fd12ebe31803/src/blockarray.jl#L8-15' class='documenter-source'>source</a><br></p>
 <p>Constructs a <code>BlockArray</code> with uninitialized blocks from a block type.</p>
-<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/a0dd7fc7295052a7b0b1d498e579dac3984b89b3/src/blockarray.jl#L162-164' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/f118b35c063ff2d15a3ac6c3c678fd12ebe31803/src/blockarray.jl#L162-164' class='documenter-source'>source</a><br></p>
 <p><a id='PseudoBlockArray-1'></a></p>
 <h2 id="pseudoblockarray">PseudoBlockArray</h2>
 <p><a id='BlockArrays.PseudoBlockArray' href='#BlockArrays.PseudoBlockArray'>#</a>
@@ -463,7 +463,7 @@ julia&gt; A = PseudoBlockArray(sprand(6, 0.5), [3,2,1])
  0.0553841
 </code></pre>
 
-<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/a0dd7fc7295052a7b0b1d498e579dac3984b89b3/src/pseudo_blockarray.jl#L8-38' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/KristofferC/BlockArrays.jl/tree/f118b35c063ff2d15a3ac6c3c678fd12ebe31803/src/pseudo_blockarray.jl#L8-38' class='documenter-source'>source</a><br></p>
               
             </div>
           </div>
