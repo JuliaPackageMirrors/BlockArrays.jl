@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-05-18</lastmod>
+     <lastmod>2016-05-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,19 +13,19 @@
         
     <url>
      <loc>None/man/abstractblockarrayinterface/</loc>
-     <lastmod>2016-05-18</lastmod>
+     <lastmod>2016-05-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/man/blockarrayss/</loc>
-     <lastmod>2016-05-18</lastmod>
+     <lastmod>2016-05-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/man/pseudoblockarrays/</loc>
-     <lastmod>2016-05-18</lastmod>
+     <lastmod>2016-05-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -35,13 +35,13 @@
         
     <url>
      <loc>None/lib/public/</loc>
-     <lastmod>2016-05-18</lastmod>
+     <lastmod>2016-05-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/lib/internals/</loc>
-     <lastmod>2016-05-18</lastmod>
+     <lastmod>2016-05-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
