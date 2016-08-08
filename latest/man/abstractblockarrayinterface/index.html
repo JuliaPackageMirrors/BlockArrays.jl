@@ -210,44 +210,20 @@
 <p>For a more thorough description of the methods see the public interface documentation.</p>
 <p>With the methods above implemented the following are automatically provided:</p>
 <ul>
-<li>A pretty printing <code>show</code> function that uses unicode lines to split up the blocks:</li>
-</ul>
-<pre><code>julia&gt; A = BlockArray(rand(4, 5), [1,3], [2,3])
-2×2-blocked 4×5 BlockArrays.BlockArray{Float64,2,Array{Float64,2}}:
- 0.28346   0.234328  │  0.10266   0.0670817  0.941958
- --------------------┼-------------------------------
- 0.881618  0.152164  │  0.938311  0.819992   0.860623
- 0.74367   0.16049   │  0.704886  0.950269   0.601036
- 0.502035  0.259069  │  0.857453  0.197673   0.962873
-</code></pre>
-
-<ul>
-<li>Indexing with <code>Enums</code> works as a way to access blocks and set blocks.</li>
-</ul>
-<pre><code>julia&gt; @enum vars u=1 v=2
-
-julia&gt; A[u, v]
-1×3 Array{Float64,2}:
- 0.10266  0.0670817  0.941958
-
-julia&gt; A[u, v] = zeros(1,3);
-
-julia&gt; A[u, v]
-1×3 Array{Float64,2}:
- 0.0  0.0  0.0
-</code></pre>
-
-<ul>
-<li>A bounds index checking function for indexing with blocks:</li>
-</ul>
-<pre><code>julia&gt; blockcheckbounds(A, 5, 3)
-ERROR: BlockBoundsError: attempt to access 2×2-blocked 4×5 BlockArrays.BlockArray{Float64,2,Array{Float64,2}} at block index [5,3]
- in blockcheckbounds(::BlockArrays.BlockArray{Float64,2,Array{Float64,2}}, ::Int64, ::Int64) at .julia/v0.5/BlockArrays/src/abstractblockarray.jl:190
- in eval(::Module, ::Any) at ./boot.jl:226
-</code></pre>
-
-<ul>
-<li>Happy users who know how to use your new block array :)</li>
+<li>
+<p>A pretty printing <code>show</code> function that uses unicode lines to split up the blocks:</p>
+<p>julia&gt; A = BlockArray(rand(4, 5), [1,3], [2,3])   2×2-blocked 4×5 BlockArrays.BlockArray{Float64,2,Array{Float64,2}}:    0.28346   0.234328  │  0.10266   0.0670817  0.941958    ––––––––––┼–––––––––––––––-    0.881618  0.152164  │  0.938311  0.819992   0.860623    0.74367   0.16049   │  0.704886  0.950269   0.601036    0.502035  0.259069  │  0.857453  0.197673   0.962873
+  * Indexing with <code>Enums</code> works as a way to access blocks and set blocks.</p>
+<p>julia&gt; @enum vars u=1 v=2</p>
+<p>julia&gt; A[u, v]   1×3 Array{Float64,2}:    0.10266  0.0670817  0.941958</p>
+<p>julia&gt; A[u, v] = zeros(1,3);</p>
+<p>julia&gt; A[u, v]   1×3 Array{Float64,2}:    0.0  0.0  0.0</p>
+</li>
+<li>
+<p>A bounds index checking function for indexing with blocks:</p>
+<p>julia&gt; blockcheckbounds(A, 5, 3)   ERROR: BlockBoundsError: attempt to access 2×2-blocked 4×5 BlockArrays.BlockArray{Float64,2,Array{Float64,2}} at block index [5,3]    in blockcheckbounds(::BlockArrays.BlockArray{Float64,2,Array{Float64,2}}, ::Int64, ::Int64) at .julia/v0.5/BlockArrays/src/abstractblockarray.jl:190    in eval(::Module, ::Any) at ./boot.jl:226
+  * Happy users who know how to use your new block array :)</p>
+</li>
 </ul>
               
             </div>
